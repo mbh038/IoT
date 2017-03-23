@@ -8,6 +8,7 @@ Created on Wed Mar 22 18:23:54 2017
 import socket
 import sys
 
+#Create socket
 try:
     mysock=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 except socket.error:
@@ -18,10 +19,11 @@ try:
 except socket.gaierror:
     print("Failed to get host")
     sys.exit()
-mysock.connect(host,80)
+#Establish TCP session via IP address and port specified
+mysock.connect((host,80))
 message= "GET / HTTP/1.1\r\n\r\n"
 try:
-    mysock.sendall(message)
+    mysock.sendall(message.encode('utf-8'))
 except socket.error:
     print("Failed to send")
     sys.exit()
