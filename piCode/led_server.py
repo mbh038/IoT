@@ -7,7 +7,7 @@ Created on Thu Mar 23 05:49:34 2017
 
 import socket
 import sys
-import GPIO
+import Rpi.GPIO as GPIO
 
 #Create socket
 try:
